@@ -4,9 +4,10 @@
  * Copyright (c) 2001 AGF Asset Management.
  */
 package fakedb;
+import junit.framework.TestCase;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import junit.framework.TestCase;
 
 public class FakeDriverTest extends TestCase {
     public void testRegister() throws Exception {
@@ -26,6 +27,7 @@ public class FakeDriverTest extends TestCase {
 
 
     public void test_getConnection() throws Exception {
+        Class.forName("fakedb.FakeDriver");
         Connection con = DriverManager.getConnection("jdbc:fakeDriver");
         assertNotNull(con);
     }

@@ -4,12 +4,10 @@
  * Copyright (c) 2001 AGF Asset Management.
  */
 package fakedb;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.DriverPropertyInfo;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 import java.util.Stack;
+import java.util.logging.Logger;
 
 public class FakeDriver implements java.sql.Driver {
     public static final Object[][] EMPTY = {};
@@ -109,6 +107,10 @@ public class FakeDriver implements java.sql.Driver {
 
     public boolean jdbcCompliant() {
         return false;
+    }
+
+    public Logger getParentLogger() {
+        throw new UnsupportedOperationException("No Logger is used");
     }
 
 
